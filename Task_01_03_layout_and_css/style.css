@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    font: medium "Comic Sans MS";
+}
+p {
+    margin: 1em;
+    line-height: 1.5em;
+}
+body{
+    background-color: #fff; 
+}
+.content{
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #ddd;
+    overflow: hidden;
+    box-shadow: 3px 3px 3px #999;
+}
+.leftbar{
+    float: left;
+    background-color: #fff;
+    width: 198px;
+    border: 1px solid #ccc;
+    margin-right: -200px;
+    box-shadow: 1px 1px 1px #999;
+}
+#logo_img {
+    float:left;
+    width: 80px;
+    height: 80px;
+    margin: 20px 10px 20px 20px;
+    border: 1px solid #888;
+    box-shadow: 1px 1px 1px #999;
+}
+#logo_img img{
+    width: 79px;
+    height: 79px;
+}
+#team_name{
+    float: left;
+    max-width: 70px;
+    margin: 20px 10px 0 0;
+}
+.rightbar{
+    float: right;
+    width: 120px;
+    margin-left:-120px;
+    background-color: #fff;
+    box-shadow: 1px 1px 1px #999;
+
+}
+.rightbar .member_logo{
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    border: 1px solid #888;
+    box-shadow: 1px 1px 1px #999;
+}
+.rightbar .member_logo img{
+    width: 79px;
+    height: 79px;
+}
+
+.main_body{
+    float: left;
+    width: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin: 0 140px 0 220px;
+    padding: 20px;
+    box-shadow: 1px 1px 1px #999;
+}
