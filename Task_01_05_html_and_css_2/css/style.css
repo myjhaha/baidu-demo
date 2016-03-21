@@ -1,11 +1,22 @@
 *{
     padding: 0;
     margin: 0; 
+<<<<<<< HEAD
     font:medium "Comic Sans MS";
+=======
+>>>>>>> gh-pages
 }
 body {
     background-color: #ddd;
 }
+<<<<<<< HEAD
+=======
+ul:before, ul:after {
+    content:"";
+    display: table ;
+    clear:both;
+}
+>>>>>>> gh-pages
 h1,h2{
     font-size: 1.5em;
     font-weight: bolder;
@@ -32,6 +43,7 @@ header{
     background-color: #232;
     width: 100%;
 }
+<<<<<<< HEAD
 footer{
     background-color: #232;
     width: 100%;
@@ -57,10 +69,46 @@ nav .nav_link{
 nav .nav_link ul{
     list-style: disc;
     overflow: hidden;
+=======
+header:before, header:after {
+    content:"";
+    display: table ;
+    clear:both;
+}
+header img{
+    margin: 5px;
+    width: 120px;
+    height: 40px;
+    float:left;
+}
+
+header nav{
+    float: right;
+    height: 50px;
+    margin: 0 4px;
+    font-size: 0.8em;
+
+}
+nav .nav_link{
+    height: 50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+nav .nav_link ul{
+    
+    /*height: 40px;*/
+    display: block;
+    list-style: disc;
+>>>>>>> gh-pages
 }
 nav .nav_link ul li{
     float:left;
     margin-left: 25px;
+<<<<<<< HEAD
+=======
+    width: 70px;
+>>>>>>> gh-pages
 }
 
 nav a{
@@ -71,6 +119,15 @@ nav a{
 nav a:hover{
     color: #bbb;
 }
+<<<<<<< HEAD
+=======
+footer{
+    background-color: #232;
+    width: 100%;
+}
+
+
+>>>>>>> gh-pages
 .main{
     overflow: hidden;
     position: relative;
@@ -149,6 +206,7 @@ nav a:hover{
 }
 
 @media screen and (max-width: 860px) {
+<<<<<<< HEAD
     nav {
         height: auto; 
         text-align: center;
@@ -156,6 +214,18 @@ nav a:hover{
     nav .nav_link{
         position:static;
         height: auto;
+=======
+    header{
+        text-align:center;
+    }
+    header img{
+        position: static;
+        float: none;
+    }
+    header nav{
+        position: static;
+        float: none;
+>>>>>>> gh-pages
     }
     .article_content{
         margin: auto;
