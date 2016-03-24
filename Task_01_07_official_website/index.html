@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>技术产品官网的页面架构及样式布局</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">
+        <a href="#"><img src="./images/logo.png" alt=""><span>新世界</span></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#">首页</a></li>
+          <li><a href="">最新活动</a></li>
+          <li><a href="">项目介绍</a></li>
+          <li><a href="">爱心社区</a></li>
+          <li><a href="">关于我们</a></li>
+          <div class="user_info"><a href="#" class="login"><span><img src="./images/nav_login.png" alt=""></span><span>登陆</span></a></div>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="main">
+      <section id="section_1">
+        <div class="bg">
+         <div class="alpha_div"></div>
+        </div>
+        <article>
+          <h1>Time of new life</h1>
+          <p>新时代，年轻的人们让我们一起<br>体验新生活，享受新生活</p>
+          <a href="#" class="button"><span>开始体验</span></a>
+        </article>
+      </section>
+      <section id="section_2">
+        <div class="row">
+          <div class="item">
+            <div><img src="./images/icon_1.gif" alt=""></div>
+            <div class="detial">
+              <span>打造全新世界观，让你更<br>爱你的生活</span>
+            </div>
+          </div>
+          <div class="item">
+            <div><img src="./images/icon_2.gif" alt=""></div>
+            <div class="detial">
+              <span>丰富多彩的公益活动，发<br>挥新世界的主人公意识</span>
+            </div>
+          </div>
+          <div class="item">
+            <div><img src="./images/icon_3.gif" alt=""></div>
+            <div class="detial">
+              <span>时尚的新理念，超前体验<br>未知的生活</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="icon"><img src="./images/icon_4.gif" alt=""></div>
+            <div class="detial">
+              <span>完善的培养机制，培养你<br>全新的世界观</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="section_3">
+        <div class="title">
+          <p><img src="./images/logo.png" alt=""></p>
+          <p><span>关于新世界，你不知道的还有什么？</span></p>
+        </div>
+      </section>
+
+      <section id="section_4">
+        <div class="search">
+          <div class="bg">
+            <div class="alpha_div"></div>
+          </div>
+          <article>
+            <span class="title">查找新世界城市活动信息</span>
+            <span class="detial">每个城市都有不同的活动信息，请自主查询您所要了解的城市</span>
+            <div class="select_area">
+              <form action="#" method="post">
+                <select name="country">
+                  <option value="China" selected="true">中国</option>
+                  <option value="USA">美国</option>
+                  <option value="Japan">日本</option>
+                  <option value="Russia">俄罗斯</option>
+                </select>
+                <select name="state">
+                  <option value="Beijing" >北京</option>
+                  <option value="Guangdong" selected="true">广东</option>
+                  <option value="Zhejiang">浙江</option>
+                  <option value="Fujian">福建</option>
+                </select>
+                <select name="city">
+                  <option value="Zhaoqing">肇庆</option>
+                  <option value="Guangzhou">广州</option>
+                  <option value="Shenzhen" selected="true">深圳</option>
+                  <option value="Zhuhai">珠海</option>
+                  <option value="Zhaoqing">肇庆</option>
+                  <option value="Guangzhou">广州</option>
+                  <option value="Shenzhen" selected="true">深圳</option>
+                  <option value="Zhuhai">珠海</option>
+                  <option value="Zhaoqing">肇庆</option>
+                  <option value="Guangzhou">广州</option>
+                  <option value="Shenzhen" selected="true">深圳</option>
+                  <option value="Zhuhai">珠海</option>
+                  <option value="Zhaoqing">肇庆</option>
+                  <option value="Guangzhou">广州</option>
+                  <option value="Shenzhen" selected="true">深圳</option>
+                  <option value="Zhuhai">珠海</option>
+                </select>
+                <a href="#"><span class="button">搜索</span></a>
+              </form>
+            </div>
+          </article>
+        </div> 
+      </section>
+      <section id="section_5">
+        <div>
+          <img src="./images/pic_1.gif" alt="">
+          <div class="text">
+            <h3>北京活动</h3>
+            <span>新社区大联盟</span>
+          </div>
+        </div>
+        <div>
+          <img src="./images/pic_2.gif" alt="">
+          <div class="text">
+            <h3>上海活动</h3>
+            <span>夜上海新景观探索</span>
+          </div>
+        </div>
+        <div>
+          <img src="./images/pic_3.gif" alt="">
+          <div class="text">
+            <h3>深圳活动</h3>
+            <span>全新海岸线景观站</span>
+          </div>
+        </div>
+        <div>
+          <img src="./images/pic_4.gif" alt="">
+          <div class="text">
+            <h3>香港活动</h3>
+            <span>奢侈品消费大派送</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="section_6">
+          <!--  
+          <div class="col-2 img">
+            <div class="bg">
+              
+            </div>
+            <div class="text">
+              
+            </div>
+            
+          </div>
+          
+          <div class="col-1 tab">
+            <div id="essay_1">
+              <h2 class="essay_title">新世界</h2><span>/</span><span>01</span>
+              <p>新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个111111</p>
+              <a href="#">更多详情</a>
+              <div>。 。 。</div>
+            </div>
+            <div id="essay_2">
+              <h2 class="essay_title">新世界</h2><span>/</span><span>02</span>
+              <p>新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个222222</p>
+              <a href="#">更多详情</a>
+              <div>。 。 。</div>
+            </div>
+            <div id="essay_3">
+              <h2 class="essay_title">新世界</h2><span>/</span><span>03</span>
+              <p>新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个新世界是个333333</p>
+              <a href="#">更多详情</a>
+              <div>。 。 。</div>
+            </div>
+          </div>
+        </div>
+         -->
+        <div class="row-1">
+          <ul class="gallery">
+            <li>
+              <div class="img">
+                <img src="./images/bg_6_1.gif" alt="">
+                <div class="text">
+                  <span class="t2">新世界</span>
+                  <span class="t1">TIME</span>
+                  <span>@新世界 - 北京</span>
+                  <span>2016.04.01</span>
+                </div>
+              </div>
+              <div class="eassy">
+                <h1>新世界/03</h1>
+                <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+                <a href="" class="button"><span>更多详情</span></a>
+                <ul class="point-list">
+                  <li href="#more_1" class="f-dib"></li>
+                  <li href="#more_2" class="active f-dib"></li>
+                  <li href="#more_3" class="f-dib"></li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="img"><img src="./images/bg_6_2.png" alt=""></div>
+              <div class="eassy">
+                <h1>新世界/03</h1>
+                <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+                <a href="" class="button">更多详情</a>
+              </div>
+            </li>
+            <li>
+              <div class="img"><img src="./images/bg_6_3.png" alt=""></div>
+              <div class="eassy">
+                <h1>新世界/03</h1>
+                <p>新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界新世界是个新世界</p>
+                <a href="" class="button"><span>更多详情</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="row-2">
+          <div class="col-1">
+            <div class="content aboutus">
+              <span class="t1">新时代<br>关于爱生活的我们</span>
+              <a href="#"><span class="button">查看更多</span></a>
+            </div>
+          </div>
+          <div class="col-1">
+            <div class="content aboutus noselect">
+              <span class="t1">新时代<br>关于爱生活的我们</span>
+              <a href="#"><span class="button">查看更多</span></a>
+            </div>
+          </div>
+          <div class="col-1 bg">
+            <img src="./images/bg3.gif" alt="">
+          </div>
+        </div>
+      </section>
+      <section id="section_7">
+        <div>
+          <div class="row">
+            <div class="title">
+              <span class="t1">成为我们的志愿者</span>
+              <span class="detial">新世界的大家庭需要每一个爱生活的人的加入，如果您够年轻、有梦想、有激情<br>那就不要犹豫，快来加入我们，成为改变所有人生活的人</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="agreement">
+              <div class="article">
+                <span class="t1">新世界志愿者协议</span>
+                <span class="detial">新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议新世界志愿者协议</span>
+                <a href="#" class="more">more</a>
+              </div>
+              <div class="article">
+                <span class="t1">新世界志愿者权利</span>
+                <span class="detial">新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利新世界志愿者权利</span>
+                <a href="#" class="more">more</a>
+              </div>
+              <div class="article">
+                <span class="t1">更多条款</span>
+                <a href="#" class="more">more</a>
+              </div>
+            </div>
+            <div class="join_us">
+              <form action="#">
+                  <div data-label="姓名：" class="text">
+                    <input type="text">
+                  </div>
+                  <div data-label="年龄：" class="text">
+                    <input type="text">
+                  </div>
+                  <div data-label="联系方式：" class="text">
+                    <input type="text">
+                  </div>
+                  <div data-label="联系地址：" class="text">
+                    <input type="text">
+                  </div>
+                  <div data-label="请简直描述你梦想的生活：" class="textarea">
+                    <textarea></textarea>
+                  </div>
+                <div class="row">
+                  <div class="submit">提交申请</div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="contact_us">
+      <h2 class="t1">联系我们</h2>
+      <span class="detial">为了更好的获取我们最新的产品资讯，您可以留下您的电子邮箱快速订阅我们的产品资讯<br>也可以通过以下任何方式关注我们的动态</span>
+      <div class="submit_div">
+        <form action="#">
+          <div class="input_text">
+            <input type="text">
+          </div>
+          <a href=""><span class="button">提交</span></a>
+        </form>
+      </div>
+      <div>
+        <div class="sys_logo_list">
+          <a href="" class="qq"><img src="./images/icon_qq.png" alt=""></a>
+          <a href="" class="weibo"><img src="./images/icon_weibo.png" alt=""></a>
+          <a href="" class="twitter"><img src="./images/icon_twitter.png" alt=""></a>
+          <a href="" class="what_the_hell"><img src="./images/icon_what_the_hell.png" alt=""></a>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <footer>
+      <div class="left">@2016 新世界</div>
+      <div class="right">Back to top</div>
+    </footer>
+  </body>
+</html>
