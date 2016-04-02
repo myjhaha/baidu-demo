@@ -1,0 +1,82 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+fieldset{
+  width: 1024px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+}
+#form-gra-time input{
+  display: none;
+}
+#form-gra-time span{
+  border: 1px solid #696;
+  border-radius: 10px;
+  display: inline-block;
+  width: 50px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+}
+#form-gra-time span.selected{
+  background-color: #777;
+  color: white;
+}
+#city-select {
+  width: 100px;
+  text-align: center;
+  line-height: 25px;
+}
+#aqi-chart-wrap{
+  position: relative;
+  width: 1080px;
+  height: 460px;
+  overflow: scroll;
+  margin: 30px auto;
+  box-shadow: 0px 0px 5px #999999;
+  border-radius: 15px 15px 0 0;
+  overflow: scroll;
+  overflow-y: hidden;
+}
+#aqi-chart-wrap .chart-title{
+  text-align: center;
+  line-height: 40px;
+  font: normal 24px/40px "微软雅黑", sans-serif;
+  height: 40px;
+  display: block;
+}
+
+
+@keyframes heightAnim {
+    0% {
+        bottom: -300px;
+    }
+    100% {
+        bottom: 1px;
+    }
+}
+.aqi-bar {
+    position: absolute;
+    bottom: 1px;
+    cursor: pointer;
+    animation: heightAnim .5s ease-in-out;
+}
+.aqi-bar:hover{
+  background-color: #bda;
+  box-shadow: 0px 0px 5px #222;
+}
+.day{
+  width: 6px;
+}
+.week{
+  width: 30px;
+}
+.month{
+  width: 60px;
+}
+
+
