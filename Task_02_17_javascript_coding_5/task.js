@@ -17,9 +17,9 @@ function getDateStr(dat) {
   d = d < 10 ? '0' + d : d;
   return y + '-' + m + '-' + d;
 }
-function randomBuildData(seed, days) {
+function randomBuildData(seed, begin, days) {
   var returnData = {};
-  var dat = new Date("2016-06-01");
+  var dat = new Date(begin);
   var datStr = ''
   for (var i = 1; i <= days; i++) {
     datStr = getDateStr(dat);
@@ -29,27 +29,30 @@ function randomBuildData(seed, days) {
   return returnData;
 }
 // 数据
+var _begin = "2014-06-01";
+var _numberOfSample = 366;
 var aqiSourceData = {
-  "aqiData":{ "北京": randomBuildData(500, 366),
-              "上海": randomBuildData(300, 366),
-              "广州": randomBuildData(200, 366),
-              "深圳": randomBuildData(100, 366),
-              "成都": randomBuildData(300, 366),
-              "西安": randomBuildData(500, 366),
-              "福州": randomBuildData(100, 366),
-              "厦门": randomBuildData(100, 366),
-              "沈阳": randomBuildData(500, 366),
-              "济南": randomBuildData(400, 366), },
-  "begin": "2014-06-01",
-  "numberOfSample": 366,
+  "begin": _begin,
+  "numberOfSample": _numberOfSample,
+  "aqiData":{ "北京": randomBuildData(500, _begin ,_numberOfSample),
+              "上海": randomBuildData(250, _begin ,_numberOfSample),
+              "广州": randomBuildData(400, _begin ,_numberOfSample),
+              "深圳": randomBuildData(200, _begin ,_numberOfSample),
+              "成都": randomBuildData(300, _begin ,_numberOfSample),
+              "西安": randomBuildData(500, _begin ,_numberOfSample),
+              "福州": randomBuildData(100, _begin ,_numberOfSample),
+              "厦门": randomBuildData(150, _begin ,_numberOfSample),
+              "沈阳": randomBuildData(500, _begin ,_numberOfSample),
+              "济南": randomBuildData(350, _begin ,_numberOfSample), },
   "citys": ["北京","上海","广州","深圳","成都","西安","福州","厦门","沈阳","济南"]
 };
 // 用于渲染图表的数据
 var chartData = {};
-var colorPallette = [ "#0c0", "#0f0", "#6f0", "#ff0",
-                      "#ff9", "#fcf", "#f9c", "#f69", 
-                      "#f36", "#f03", "#f00", "#900",
-                      "#600", "#000" ];
+var colorPallette = [ "#090", "#0c0", "#0f0", "#3c0", "#6c0", "#9c0", "#cc0",
+                      "#fc0", "#fc3", "#ff3", "#fc6", "#fc9", "#fcc", "#fcf",
+                      "#f9f", "#f6f", "#f3f", "#f0f", "#f0c", "#f09", "#f06", 
+                      "#f03", "#f00", "#c00", "#900", "#600", "#300", "#000"
+                       ];
 // 记录当前页面的表单选项
 var pageState = {
   nowSelectCity: -1,
@@ -59,15 +62,16 @@ var pageState = {
 var graTimeField;
 var radioSpanNodes;
 var citySelector;
-var chartWrap;
+var chartDiv;
+var chartTitle;
 /**
  * 渲染图表
  */
 function renderChart() {
   var city = pageState.nowSelectCity;
   var graTime = pageState.nowGraTime;
-  chartWrap = chartWrap || document.getElementById("aqi-chart-wrap");
-  var chartHeight = chartWrap.clientHeight;
+  chartDiv = chartDiv || document.getElementById("aqi-chart");
+  chartTitle = chartTitle || document.getElementById("aqi-chart-title");
   var str = "";
   var data = chartData[graTime][city];
   console.log(graTime + " " + city);
@@ -86,20 +90,26 @@ function renderChart() {
   //var len = data.length;
   var i = 0;
   var width = getWidth(graTime);
-  str = ("<div class=\"chart-title\">" + city + "市" + flag + "空气质量水平: " +
-        chartData["begin"] + "-" + chartData["end"] +
-        "</div>") ;
+  var title = ( city + "市" + flag + "空气质量水平: " +
+        chartData["begin"] + "-" + chartData["end"] );
+  chartTitle.innerHTML = title;
   for(var k in data){
     i++;
-    str += ("<div class=\"aqi-bar " + graTime + "\"" +
-      " style=\"height:" + data[k]*0.7+ "px;" +
-      "left:" + width*(i*1.6 -1.5) + "px;" + 
-      "background-color:"+ getBarColor(data[k]) +";\"" +
-      " title=\"" + k + " " + flag + "空气质量指数：" + data[k] + "\"" +
-      "></div>" );
+    str += ("<div class=\"aqi-bar " + graTime + "\" " +
+              "style=\"height:" + data[k]*0.7+ "px;" +
+              " left:" + width*(i*1.6 -1.5) + "px;" + 
+              " background-color:"+ getBarColor(data[k]) +";\"" +
+              " title=\"" + k + " " + flag + "空气质量指数：" + data[k] + "\">" +
+            "</div>" + 
+            "<div class=\"aqi-hint\" " + 
+              "style=\"left:" + (width*(i*1.6 - 1) - 60 ) + "px;" + 
+              " bottom:" + (data[k]*0.7+5)+ "px;" + "\">" +
+              (k + "<br/>" +"aqi：" + Math.floor(data[k]) ) +
+            "</div>"
+      );
   }
   //console.log(str);
-  chartWrap.innerHTML = str;
+  chartDiv.innerHTML = str;
 
 }
 
@@ -142,13 +152,14 @@ function graTimeChange(target) {
   if( pageState.nowGraTime != target.value ){
     // 设置对应数据
     pageState.nowGraTime = target.value;
+    // span 状态改为 “选中”
+    // 设置 对应页面数据
+    cleanSpan();
+    target.parentNode.firstChild.className="selected";
+    // 调用图表渲染函数
+    renderChart();
   }
-  // span 状态改为 “选中”
-  // 设置 对应页面数据
-  cleanSpan();
-  target.parentNode.firstChild.className="selected";
-  // 调用图表渲染函数
-  renderChart();
+  
 }
 
 /**
@@ -198,8 +209,8 @@ function initAqiChartData() {
   // 将原始的源数据处理成图表需要的数据格式
   // 处理好的数据存到 chartData 中
   var beginDate = new Date(aqiSourceData["begin"]); 
-  var endDate = new Date(beginDate.getTime() + 60*60*1000*24*aqiSourceData["numberOfSample"] );
-  console.log(endDate); 
+  var endDate = new Date(beginDate.getTime() + 60*60*1000*24*(aqiSourceData["numberOfSample"]-1) );
+  console.log("[" + getDateYYMMDD(beginDate) +" - " + getDateYYMMDD(endDate) +"]" ); 
   chartData["day"] = {};
   chartData["week"] = {};
   chartData["month"] = {};
@@ -213,7 +224,6 @@ function initAqiChartData() {
     // chartData[month]
     chartData["month"][key] = getMonthData(aqiSourceData["aqiData"][key]);
   }
-  //console.log(chartData);
 }
 
 /**
