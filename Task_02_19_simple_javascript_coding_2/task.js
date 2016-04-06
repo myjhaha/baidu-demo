@@ -108,7 +108,7 @@ function runSortData(compareFun){
           j=0;
         }
       }
-      setTimeout(stepOne,5);
+      setTimeout(stepOne,3);
     }
   }
   stepOne();
