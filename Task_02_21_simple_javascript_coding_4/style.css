@@ -1,0 +1,47 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+fieldset{
+  width: 1024px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+}
+.tag-container{
+  width: 800px;
+  min-height: 50px;
+  padding: 5px;
+  margin: 5px;
+  box-shadow: 0 0 3px #aaa;
+}
+
+.tag-container .list-item{
+  position: relative;
+  display: inline-block;
+  min-width: 50px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 10px;
+  background-color: #bbb;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.tag-container .list-item:hover{
+
+}
+.tag-container .list-item:hover:before{
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 24px;
+  height: 24px;
+  content: ""; 
+  display: block;
+  background-image:url("./Delete.png");
+  color: white;
+  background-size: 24px 24px;
+}
