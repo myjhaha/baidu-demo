@@ -13,7 +13,11 @@ fieldset{
 #list-div{
   position: relative;
   width: 1024px;
+<<<<<<< HEAD
   height: 400px;
+=======
+  min-height: 200px;
+>>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
   margin: 30px auto;
   box-shadow: 0px 0px 5px #999;
   border-radius: 15px;
@@ -32,5 +36,16 @@ fieldset{
 }
 #list-div .list_item strong{
   font-weight: bolder;
+<<<<<<< HEAD
   color: #f60;
+=======
+  color: #f90;
+}
+
+#list-div .match{
+  border: 2px solid #f60;
+  box-shadow: 0 0 4px #f60;
+  margin: 5px;
+  padding: 0 5px;
+>>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
 }

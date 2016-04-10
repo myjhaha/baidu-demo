@@ -17,7 +17,12 @@ var listDiv;
   中国中国中中国国中
  中国，美国,
  英国 俄国;德国.意大利/越南=菲律宾-蒙古+朝鲜）
+<<<<<<< HEAD
  
+=======
+ 法國
+太平天國
+>>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
  韩国  
  加拿大 　日本，，，,,，苏联 
  中国中国中中国国中
@@ -63,7 +68,14 @@ function renderArr(arr){
   var str = "";
   var len = arr.length;
   for (var i=0; i<len; i++) {
+<<<<<<< HEAD
     str += ("<div class=\"list_item\">"+ arr[i] + "</div>");
+=======
+    if(arr[i].flag)
+      str += ("<div class=\"list_item match\">"+ arr[i].contain + "</div>");
+    else
+      str += ("<div class=\"list_item\">"+ arr[i].contain + "</div>");
+>>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
   }
   listDiv.innerHTML = str;
 }
@@ -114,11 +126,21 @@ function queryData(){
   var qTxt = queryTxt.value.trim();
   queueData.map(function(e){
     var reg = new RegExp(qTxt,'g');
+<<<<<<< HEAD
     var item = [];
     var flag = reg.test(e);
     var v2 = e.match(reg);
     var str = e.replace(reg, function(r){return "<strong>" + r + "</strong>"});
     arr.push(str);
+=======
+    var item = new Object();
+    if ( reg.test(e) )
+      item.flag = "match";
+    var v2 = e.match(reg);
+    var str = e.replace(reg, function(r){return "<strong>" + r + "</strong>"});
+    item.contain = str;
+    arr.push(item);
+>>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
   });
   renderArr(arr);
 }

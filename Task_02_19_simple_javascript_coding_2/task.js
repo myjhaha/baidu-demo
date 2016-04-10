@@ -108,7 +108,11 @@ function runSortData(compareFun){
           j=0;
         }
       }
+<<<<<<< HEAD
       setTimeout(stepOne,5);
+=======
+      setTimeout(stepOne,3);
+>>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
     }
   }
   stepOne();
