@@ -41,7 +41,7 @@ fieldset{
 }
 #aqi-chart-wrap #aqi-chart-title{
   text-align: center;
-  line-height: 40px;
+  line-height: 4 0px;
   font: normal 24px/40px "微软雅黑", sans-serif;
   height: 40px;
   display: block;
@@ -52,7 +52,6 @@ fieldset{
   height: 420px;
   overflow: scroll;
   overflow-y: hidden;
-  width: 1024px;
 }
 
 

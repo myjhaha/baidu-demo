@@ -1,0 +1,80 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+fieldset{
+  width: 1024px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+}
+input{
+  padding: 5px;
+  margin: 1px;
+}
+#tree-div {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width: 1024px;
+  min-height: 200px;
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #666;
+  background-color: #ddd;
+}
+#tree-div .tree-node{
+  border: 1px solid #363;
+  background-color: #ddd;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row; 
+  min-width: 40px;
+  min-height: 40px;
+}
+#tree-div .tree-node.current {
+  background-color: #ff4;
+}
+#tree-div .tree-node.selected {
+  background-color: #f44;
+}
+#tree-div .tree-node.readed {
+  background-color: #ff4;
+  opacity: 0.5;
+}
+
+
+/**
+ p, h1, h3, .container, #btnGroup {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        .container {
+            height: 200px;
+        }
+
+        .box {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #000000;
+            margin: 5px;
+            padding: 5px;
+            width: 80%;
+            height: 80%;
+        }
+
+*/

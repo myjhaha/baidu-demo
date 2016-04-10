@@ -1,0 +1,32 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+fieldset{
+  width: 1024px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+}
+
+#chart-div{
+  position: relative;
+  width: 1024px;
+  height: 400px;
+  margin: 30px auto;
+  box-shadow: 0px 0px 5px #999;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+}
+#chart-div .queue_item{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 5px;
+  background-color: #bbb;
+  border-radius: 5px;
+}
