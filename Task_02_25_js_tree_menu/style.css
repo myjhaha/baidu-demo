@@ -1,0 +1,107 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+fieldset{
+  width: 1024px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+}
+input{
+  padding: 5px;
+  margin: 1px;
+}
+span{
+  margin: 0 5px;
+}
+.hidden{
+  display: none;
+}
+.visible{
+  display: block;
+}
+.unfolded > div.tree-node{ /*展开*/
+  display: block;
+}
+.unfolded i{
+
+}
+.folded > div.tree-node{ /*收起*/
+  display: none;
+}
+#menu-div {
+  position: relative;
+  width: 1024px;
+  height: 400px;
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #666;
+  background-color: #ddd;
+  overflow-y: scroll;
+}
+
+/**
+ *  菜单样式
+ *  
+ */
+.tree-node{
+  padding-left: 1.5em;
+}
+.tree-node.current > .tree-node-title{
+  background-color: #ff4;
+}
+.tree-node.selected > .tree-node-title > a{
+  background-color: #f44;
+  color: #ff0;
+  font-weight: bolder;
+}
+.tree-node-title{
+  height: 22px;
+}
+.tree-node-title >a:hover{
+  background-color: #0cc;
+}
+
+.tree-node-title > a{
+  display: inline-block;
+  padding: 2px;
+  color: #222;
+  line-height: 20px;
+  height: 20px;
+  text-decoration: none;
+}
+.fa:before{
+  margin-right: 6px;
+}
+.tree-node-title > a > i.fa{
+  /*cursor: pointer;*/
+  display: inline-block;
+}
+.tree-node-title > .btn-group >i.fa:hover{
+  background-color: #933;
+  color: white;
+}
+.tree-node-title > .btn-group{
+  font-size: 12px;
+  display:  inline-block;
+  height: 20px;
+  line-height: 20px;
+  margin: 0px 0px 0px 20px;
+  cursor: pointer;
+  opacity: 0;
+}
+.tree-node-title:hover > .btn-group{
+  opacity: 0.3;
+}
+.tree-node-title > .btn-group:hover{
+  opacity: 0.6;
+}
+.tree-node-title > .btn-group > i{
+  border: 1px solid #333;
+  margin: 0 2px;
+  padding: 2px;
+}

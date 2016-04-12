@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="font-awesome.css">
+    <title>任务二十五：JavaScript和树（四）- 下拉菜单</title>
+</head>
+<body>
+    <div id="board">
+        <fieldset>
+            <legend>操作</legend>
+            <input type="text" id="search-txt" placeholder="请输入搜索文件名称"/>
+            <input type="button" id="search-btn" value="搜索"/>
+            <input type="radio" name="search-method" value="bfs" id="bfs-radio" checked="checked"><label for="bfs-radio" >广度优先查询</label>
+            <input type="radio" name="search-method" value="dfs" id="dfs-radio"><label for="dfs-radio">深度优先查询</label>
+            &nbsp;
+            <input type="button" id="clean-btn" value="清除样式"/>
+        </fieldset>
+        <div id="menu-div">
+        </div>
+    </div>
+    <script src="util.js"></script>
+    <script src="task.js"></script>
+</body>
+</html>

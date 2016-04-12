@@ -1,27 +1,34 @@
-
 var timeID;
-
+// data
 var tree;
+
 var treeDiv;
 var BFSBtn;
 var DFSBtn;
 var inputTxt;
 var searchBtn;
-function $(id) {
-    return document.getElementById(id);
-}
+var addBtn;
+var delBtn;
+
+function $(id) { return document.getElementById(id);}
 function initPage(){
   treeDiv = treeDiv ||$("tree-div");
   BFSBtn = BFSBtn ||$("bfs-btn");
   DFSBtn = DFSBtn ||$("dfs-btn");
   inputTxt = inputTxt || $("input-txt");
   searchBtn = searchBtn || $("search-btn");
+  addBtn = addBtn ||$("add-btn");
+  delBtn = delBtn ||$("del-btn");
 
   addEventHandler(BFSBtn, "click", traverseBF);
   addEventHandler(DFSBtn, "click", traverseDF);
   addEventHandler(searchBtn, "click", searchRun);
+  addEventHandler(addBtn, "click", addNode);
+  addEventHandler(delBtn, "click", delNode);
+  addEventHandler(treeDiv, "click", delegateClickEvent);
+  
 }
-
+//
 function test(){
   tree = new Tree("0");
   tree.add(1,0,tree.traverseBF);
@@ -39,7 +46,7 @@ function test(){
   tree.add(5,3,tree.traverseBF);
   treeDiv.appendChild(tree.createDOMTree());
 }
-
+///
 function traverseAnimationRun(nodeArr){
   var i = 0;
   clearTimeout(timeID);
@@ -143,6 +150,77 @@ function searchRun(){
     oneStep(); 
   }
   searchAnimationRun();
+}
+
+function delegateClickEvent(e){
+  var target = e.target;
+  if( target && 
+      target.tagName =="DIV" && 
+      target.classList.contains("tree-node") ){
+    //console.log(treeDiv.querySelectorAll(".tree-node"));
+    if(target.classList.contains("clicked"))
+      target.classList.remove("clicked");
+    else{
+      var a = treeDiv.querySelectorAll(".tree-node");
+      for (var i = a.length - 1; i >= 0; i--) {
+        a[i].classList.remove("clicked");
+      };
+      target.classList.add("clicked");
+    }
+  }
+}
+
+function addNode(){
+  clearTimeout(timeID);
+  var inputData = inputTxt.value.trim();
+  if(!inputTxt){
+    alert("请输入插入的信息");
+    return;
+  }
+  if(treeDiv.innerHTML == ""){
+    tree = new Tree(inputData);
+    treeDiv.appendChild(tree.createDOMTree());
+    return ;
+  }
+  var ele = treeDiv.querySelector(".clicked");
+  if(!ele){
+    alert("请选中插入的节点");
+    return ;
+  }
+  tree.contains(function(node){
+    if(node.domEle == ele){
+      var newNode = new Node(inputData);
+      newNode.parent = node;
+      node.children.push(newNode);
+      treeDiv.innerHTML = "";
+      treeDiv.appendChild(tree.createDOMTree());
+    }
+  },tree.traverseBF);
+}
+function delNode(){
+  clearTimeout(timeID);
+  var ele = treeDiv.querySelector(".clicked");
+  if(!ele){
+    alert("请选中删除的节点");
+    return ;
+  }
+  var res;
+  tree.contains(function(node){
+    if(node.domEle == ele){
+      var parent = node.parent;
+      if(parent){
+        for (var i = parent.children.length - 1; i >= 0; i--) {
+          if(parent.children[i] == node){
+            res = parent.children.splice(i,1);
+            treeDiv.innerHTML="";
+            treeDiv.appendChild(tree.createDOMTree());
+          }
+        };
+      }else{
+        treeDiv.innerHTML="";
+      }
+    }
+  },tree.traverseBF);
 }
 window.onload = function (){
   initPage();
