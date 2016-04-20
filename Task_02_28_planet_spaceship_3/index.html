@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>任务二十六：行星与飞船（一）</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main>
+
+<!-- 世界显示屏 -->
+<canvas id="canvas" width="600" height="400"></canvas>
+<!-- 控制台 -->
+<div class="right-panal movable"  id="console">
+  <div class="panal-title">Console 控制台（未可用）</div>
+  <div id="console-text">
+
+  </div>
+</div>
+<!-- Spaceship 发射装置 -->
+<div class="right-panal movable"  id="spaceship-create-div">
+  <div class="panal-title">Spaceship 发射装置</div>
+  <div class="control-main">
+    <fieldset>
+      <legend>动力装置</legend>
+      <input type="radio" name="power-system" value="1" id="powsys-1" checked="checked"><label for="powsys-1">前进号（速率200KM/s，能耗5/s）</label><br>
+      <input type="radio" name="power-system" value="2" id="powsys-2"><label for="powsys-2">奔腾号（速率400KM/s，能耗7/s）</label><br>
+      <input type="radio" name="power-system" value="3" id="powsys-3"><label for="powsys-3">超越号（速率800KM/s，能耗9/s）</label><br>
+      <input type="radio" name="power-system" value="4" id="powsys-4"><label for="powsys-4">光束号（速率1600KM/s，能耗10/s）</label>
+    </fieldset>
+    <fieldset>
+      <legend>能源系统</legend>
+      <input type="radio" name="energy-system" value="1" id="ergsys-1" checked="checked"><label for="ergsys-1">劲量型（能源回复2/s）</label><br>
+      <input type="radio" name="energy-system" value="2" id="ergsys-2"><label for="ergsys-2">光能型（能源回复3/s）</label><br>
+      <input type="radio" name="energy-system" value="3" id="ergsys-3"><label for="ergsys-3">永久型（能源回复5/s）</label><br>
+    </fieldset>
+    <fieldset>
+      <legend>选择轨道</legend>
+      <div id="orbit-select-div">
+        <!--
+        <input type="radio" name="orbit-select" value="1" id="orbit-1" checked="checked"><label for="orbit-1">轨道1</label>
+        <input type="radio" name="orbit-select" value="2" id="orbit-2"><label for="orbit-2">轨道2</label>
+        <input type="radio" name="orbit-select" value="3" id="orbit-3"><label for="orbit-3">轨道3</label>
+        <input type="radio" name="orbit-select" value="4" id="orbit-4"><label for="orbit-4">轨道4</label>
+        <input type="radio" name="orbit-select" value="5" id="orbit-5"><label for="orbit-5">轨道5</label>
+       -->
+      </div>
+    </fieldset>
+    <input type="text" id="spaceship-name" value="联盟1号"><input type="button" value="创建卫星" id="create-btn">
+  </div>
+</div>
+<!-- 卫星操作操作面板 -->
+<div class="right-panal movable" id="spaceship-control">
+  <div class="panal-title">Spaceship 卫星操作面板</div>
+  <div class="control-main">
+    <fieldset>
+      <legend>全部卫星</legend>
+      <div id="spaceship-set">
+        <!--
+        <div class="spaceship-item" spaceship_id="6"></div>
+        <div class="spaceship-item" spaceship_id="7"></div>
+        <div class="spaceship-item" spaceship_id="8"></div>
+        <div class="spaceship-item" spaceship_id="9"></div>
+        -->
+      </div>
+    </fieldset>
+    <div class="spaceship-ctl-div">
+      <input type="button" class="spaceship-ctl-btn" id="work-btn" value="运行">
+      <input type="button" class="spaceship-ctl-btn" id="stop-btn" value="停止">
+      <input type="button" class="spaceship-ctl-btn" id="kill-btn" value="自毁">
+      <input type="button" class="select-ctl-btn" id="select-all-btn" value="全选">
+      <input type="button" class="select-ctl-btn" id="unselect-all-btn" value="全不选">
+    </div>
+  </div>
+</div>
+<!-- 状态监视器 -->
+<div id="spaceship-monitor" class="movable resizeMe">
+  <div class="panal-title">Spaceship 状态监视器</div>
+  <div class="monitor-main">
+    <table border="1"  id="spaceship-info-table">
+      <tr>
+        <th>卫星</th>
+        <th>标识</th>
+        <th>动力系统</th>
+        <th>能源系统</th>
+        <th>飞行状态</th>
+        <th>剩余燃料</th>
+      </tr>
+      <tr>
+        <td>天宫1号</td>
+        <td>id[50]</td>
+        <td>前进号</td>
+        <td>远古型</td>
+        <td>飞行中</td>
+        <td>81.99</td>
+      </tr>
+    </table>
+  </div>
+</div>  
+
+</main>
+
+
+<script src="js/Common/common.js"></script>
+<script src="js/Common/utils.js"></script>
+
+<script src="js/Entity/Adapter.js"></script>
+<script src="js/Entity/Commander.js"></script>
+<script src="js/Entity/MessageSender.js"></script>
+<script src="js/Entity/MessageReceiver.js"></script>
+<script src="js/Entity/Orbit.js"></script>
+<script src="js/Entity/DataCenter.js"></script>
+<script src="js/Entity/Planet.js"></script>
+<script src="js/Entity/PowerSystem.js"></script>
+<script src="js/Entity/EnergySystem.js"></script>
+<script src="js/Entity/Spaceship.js"></script>
+<script src="js/Entity/Factory.js"></script>
+<script src="js/Entity/Mediator.js"></script>
+
+
+<script src="js/FSM/StateMachine.js"></script>
+<script src="js/FSM/State.js"></script>
+
+<script src="js/Message/Message.js"></script>
+<script src="js/Message/MessageDispatcher.js"></script>
+
+<script src="js/EntityManager.js"></script>
+<script src="js/World.js"></script>
+<script src="js/main.js"></script>
+
+
+</body>
+</html>

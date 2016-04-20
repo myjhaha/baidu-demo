@@ -68,14 +68,10 @@ function renderArr(arr){
   var str = "";
   var len = arr.length;
   for (var i=0; i<len; i++) {
-<<<<<<< HEAD
-    str += ("<div class=\"list_item\">"+ arr[i] + "</div>");
-=======
     if(arr[i].flag)
       str += ("<div class=\"list_item match\">"+ arr[i].contain + "</div>");
     else
       str += ("<div class=\"list_item\">"+ arr[i].contain + "</div>");
->>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
   }
   listDiv.innerHTML = str;
 }
@@ -126,13 +122,7 @@ function queryData(){
   var qTxt = queryTxt.value.trim();
   queueData.map(function(e){
     var reg = new RegExp(qTxt,'g');
-<<<<<<< HEAD
-    var item = [];
-    var flag = reg.test(e);
-    var v2 = e.match(reg);
-    var str = e.replace(reg, function(r){return "<strong>" + r + "</strong>"});
-    arr.push(str);
-=======
+
     var item = new Object();
     if ( reg.test(e) )
       item.flag = "match";
@@ -140,7 +130,7 @@ function queryData(){
     var str = e.replace(reg, function(r){return "<strong>" + r + "</strong>"});
     item.contain = str;
     arr.push(item);
->>>>>>> de2738c3fdb31bbd07ef4e7f2b71296460412712
+
   });
   renderArr(arr);
 }
