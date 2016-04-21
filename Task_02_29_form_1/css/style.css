@@ -1,0 +1,54 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type=submit], button{
+  text-align: center;
+  height: 2.5em;
+  line-height: 2.5em;
+  padding: 0 1em;
+  color: white;
+  background-color: blue;
+  border-radius: 0.5em;
+  outline: none;
+}
+input[type=text]{
+  height: 2.5em;
+  line-height: 2.5em;
+}
+form{/* Just to center the form on the page */
+    margin: 0 auto;
+    width: 500px;
+    /* To see the outline of the form */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+form div + div {
+  margin-top: 2em;
+}
+form label {
+  display: inline-block;
+  text-align: right;
+  margin-right: 0.5em;
+}
+#form-1{
+  padding: 3em 3em;
+}
+.tip{
+  margin-left: 3em;
+  font-size: 0.75em;
+  font-weight: bolder;
+  margin-top: 3px;
+}
+.tip.right{
+  color: green;
+}
+.tip.error{
+  color: red;
+}
