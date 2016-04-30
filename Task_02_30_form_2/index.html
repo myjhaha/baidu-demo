@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>任务三十：表单（二）多个表单项的动态校验</title>
+
+</head>
+<body>
+  <div class="container">
+    <form action="#" method="post" id="form-1" onsubmit="return submit_form_event(this)">
+      <div class="form-field-div" id="div-1">
+        <label>名字</label><input name="name" id="txt-1" type="text"/>
+        <p class="tip"></p>
+      </div>
+      <div class="form-field-div" id="div-2">
+        <label>E-mail</label><input name="e-mail" id="txt-2" type="text"/>
+        <p class="tip"></p>
+      </div>
+      <div class="form-field-div" id="div-3">
+        <label>电话</label><input name="telephone" id="txt-3" type="text"/>
+        <p class="tip"></p>
+      </div>
+      <div class="form-field-div" id="div-4">
+        <label>邮寄地址</label><input name="address" id="txt-4" type="text"/>
+        <p class="tip"></p>
+      </div>
+      <input type="submit" value="提交" id="submit-btn">
+    </form>
+  </div>
+</body>
+<script src="js/task.js"></script>
+</html>

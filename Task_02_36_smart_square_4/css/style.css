@@ -1,0 +1,235 @@
+:root, body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: black;
+  border: 0;
+}
+.world{
+  padding: 14px;
+  float: left;
+  overflow: visible;
+  position: relative;
+  background-color: white;
+  width:auto;
+  height:auto;
+  background-color: #fff;
+  /* 禁选择 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.world:before, .world:after {
+    content:"";
+    display: table ;
+    clear:both;
+}
+.checkerboard {
+  position: relative;
+  float: left;
+  width:auto;height:auto;
+  counter-reset: index_y_id -5;
+}
+
+.row{
+  white-space:nowrap;
+  position: relative;
+  width:auto;
+  display: block;
+  overflow: visible;
+  height: 14px;
+  line-height: 14px;
+}
+.row:hover{
+  background-color: #fcc;
+}
+.row:hover:before{
+  background-color: #fcc;
+}
+.row:before{
+  position: absolute;
+  display: inline-block;
+  width: 14px;
+  left: -14px;
+  text-align: center;
+  font-size: 0.5em;
+  height: 14px;
+  line-height: 14px;
+  content:"";
+}
+.row:nth-child(5n-4):before{
+  counter-increment: index_y_id 5;
+  content: counter(index_y_id);
+}
+.row:first-child{
+  counter-reset: index_x_id -5;
+}
+
+.cell{
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  border-color: #666;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  border-collapse: collapse;
+}
+.cell:nth-child(5n+6){
+  background-color: #ede;
+}
+.row:first-child .cell:before{
+  display: block;
+  text-align: center;
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  font-size: 0.5em; 
+  top:-14px;
+} 
+.row:first-child .cell:nth-child(5n-4):before{
+  display: block;
+  text-align: center;
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  font-size: 0.5em; 
+  top: -14px;
+  counter-increment: index_x_id 5;
+  content: counter(index_x_id);
+}
+.cell:first-child{
+  border-width: 1px 1px 0 1px;
+}
+.row:last-child .cell{
+  border-width: 1px 1px 1px 0px;
+}
+.row:last-child .cell:first-child{
+  border-width: 1px;
+}
+.cell:hover{
+  outline: 2px solid #666;
+  border-radius: 5px;
+  border-width: 1px;
+  z-index: 100;
+}
+
+.player{
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  background-color: #66f;
+  color: white;
+  line-height: 14px;
+  text-align: center;
+  font-size: 0.75em;
+  z-index:100;
+}
+/** ◄=&#9668;►=&#9658;&#9660;▲=&#9650;   */
+/**  ▲ ▼ ◄ ► ► */
+.player:before{
+  box-sizing: border-box;
+  content: "▲";
+  display: block;
+  text-align: center;
+  position: absolute;
+  font-size: 0.5em;
+  height: 14px;
+  width: 14px;
+  color: #00f;
+  line-height: 14px;
+  top:-14px;
+  z-index: 100;
+}
+.console{
+  width: 480px;
+}
+.console .title{
+    color: white;
+    background-color: rgba(64, 64, 255, 0.6);
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.console {
+    background-color: rgba(32, 64, 32, 0.3);
+    border: 1px solid #ccc;
+}
+.console-main{
+    background-color: rgba(32, 64, 32, 0.5);
+}
+#code-view{
+  position: relative;
+  overflow: hidden;
+}
+#row-number-list{
+  position: absolute;
+  border-right:2px solid #3c3;
+
+  width: 40px;
+  min-height: 300px;
+  padding: 7px 0;
+  overflow: hidden;
+}
+#row-number-list div{
+  padding-right: 4px;
+  color: #fff;
+  width: 40px;
+  height: 1.25em;
+  text-align: right;
+}
+#row-number-list div.ERROR{
+  background-color: rgba(255, 255, 0, 0.7);
+  font-weight: bolder;
+  color: #f00;
+}
+#row-number-list div.CUR{
+  background-color: rgba(0, 255, 255, 0.7);
+  font-weight: bolder;
+  color: #000;
+}
+
+
+#cmd-panal{
+  background-color: rgba(0,0,0, 0);
+  font-size: 1.25em;
+  line-height: 1.25em;
+  font-weight: bolder;
+  padding: 5px;
+  margin-left: 40px;
+  color: #fff;
+  width: 440px;
+  height: 300px;
+  resize: none;
+  white-space: pre-wrap;
+}
+.console button{
+  display: inline-block;
+  height: 2em;
+  min-width: 2em; 
+  margin: 2px;
+  padding: 2 2px;
+  line-height: 2em;
+}
+
+#console{
+  position: absolute;
+  right: 30px;
+  top: 30px;
+}
+#test-div{
+  position: absolute;
+  right: 30px;
+  top: 430px;
+}
+/********* test **********/
+.readme a{
+  margin-left: 3em;
+  color:white;
+}

@@ -4,10 +4,10 @@ function PriorityQueue(compareCallback){
   function HeapAdjustDown(Arr,s,m){
     var cur = Arr[s];
     for(var j = 2*s; j<=m; j*=2){
-      if(j < m && compareCallback(Arr[j], Arr[j+1]) ){
+      if(j < m && compareCallback(Arr[j], Arr[j+1]) < 0 ){
         j++;
       }
-      if(compareCallback(Arr[j], cur)){
+      if(compareCallback(Arr[j], cur) < 0){
         break;
       }
       Arr[s] = Arr[j];
@@ -18,7 +18,7 @@ function PriorityQueue(compareCallback){
   function HeapAdjustUp(Arr,s){
     var cur = Arr[s];
     for(var j = Math.floor(s/2);  j>=1 ; j=Math.floor(j/2) ){
-      if( compareCallback(Arr[j], cur) ){
+      if( compareCallback(Arr[j], cur) < 0 ){
         Arr[s] = Arr[j];
         s = j;
       }else{

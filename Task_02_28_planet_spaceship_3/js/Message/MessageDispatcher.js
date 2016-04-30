@@ -8,7 +8,7 @@ function Telegram(time, sender, receiver, msgType, extraInfo){
 }
 //compare function
 function compareTelegram(t1, t2){
-  return t1.dispatchTime > t2.dispatchTime;
+  return t2.dispatchTime - t1.dispatchTime;
 }
 
 

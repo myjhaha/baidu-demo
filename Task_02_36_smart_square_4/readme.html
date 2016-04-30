@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>任务三十六：听指令的小方块（四）Read Me</title>
+  </head>
+  <body>
+<br>
+<h3>说明</h3>
+1. 指令输入每行50个字符，中文算两个，越长仍然算一行，指令行数显示做了检查
+<br>
+2. 本想实现一个指令编译器，后来放弃了，编译原理忘记得差不多了。
+<br>
+3. 寻路算法实现了A* BFS DFS三种，寻路时在地图上显示open集和close集
+<br>
+========================================
+<br>
+<h3>一些指令</h3>
+<textarea rows="10" cols="50">
+TUN LEFT
+TRA LEFT 4
+TRA RIGHT 5
+MOV TO 15,15
+MOV TO 30,30 BY ASTAR
+MOV TO 45,45 BY BFS
+MOV TO 42,42 BY DFS
+MOV TO 1,5 BY ASTAR
+MOV TO 1,4
+TRA RIGHT 3
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+MOV TO 5,4
+BUILD 
+TUN LEFT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+MOV TO 5,4
+MOV TO 0,0
+</textarea>
+<body>
+</html>

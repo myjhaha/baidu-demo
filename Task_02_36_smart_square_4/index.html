@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>任务三十六：听指令的小方块（四）</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="world" >
+      <div class="player" id="player_1">▲</div>
+      <div class="checkerboard" id="checkerboard">
+      </div>
+    </div>
+    <div class="readme"><a href="./readme.html">--Read Me</a></div>
+    
+    <div class="console" id="console">
+      <div class="title">console 控制台</div>
+      <div class="console-main">
+        <div id="code-view">
+          <div id="row-number-list">
+            <div>0</div>
+          </div>
+<textarea id="cmd-panal"cols="50">
+TUN LEFT
+TRA LEFT 4
+TRA RIGHT 5
+MOV TO 15,15
+MOV TO 30,30 BY ASTAR
+MOV TO 45,45 BY BFS
+MOV TO 42,42 BY DFS
+MOV TO 1,5 BY ASTAR
+MOV TO 1,4
+TRA RIGHT 3
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+MOV TO 5,4
+BUILD 
+TUN LEFT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+TRA RIGHT
+BUILD 
+MOV TO 5,4
+MOV TO 0,0
+</textarea>
+        </div>
+      </div>
+      <button id="clean-checkboard-btn">清空棋盘 </button>
+      <button id="reset-btn">中止执行 &#11035;</button>
+      <button id="run-cmd-btn">Run ►</button>
+      <button id="test-btn">Test</button>
+    </div>
+    <div class="console" id="test-div">
+      <div class="title">Test 测试</div>
+      <div class="console-main">
+        <button id="turn-left-btn">向左转</button>
+        <button id="turn-right-btn">向右转</button>
+        <button id="turn-back-btn">向后转</button>
+        <button id="go-btn">Go</button>
+        <select id="grid-width-select">
+          <option value="128">128 X 128</option>
+          <option value="64">64 X 64</option>
+          <option value="48" selected="selected">48 X 48</option>
+          <option value="32">32 X 32</option>
+        </select>
+        <br><!-- ▲ ▼ ◄ ► -->
+        <table>
+          <tr><td></td><td><button id="up-btn">▲</button></td><td></td><td><button id="random-brick-btn">随机建造墙</button><input size="8" type="text" id="build-brick-num" value="100"/></td></tr>
+          <tr><td><button id="left-btn">◄</button></td><td></td><td><button id="right-btn">►</button></td><td><button id="build-btn">前方建一个墙</button></td></tr>
+          <tr><td></td><td><button id="down-btn">▼</button></td><td></td><td><button id="brush-btn">刷墙</button><input type="text" id="color-input" value="#ff0"></td></tr>
+        </table>
+      </div>
+    </div>
+    
+    <script  src="js/core/Util.js" charset="utf-8"></script>
+    <script  src="js/core/Grid.js" charset="utf-8"></script>
+    <script  src="js/core/Node.js" charset="utf-8"></script>
+    <script  src="js/core/Player.js" charset="utf-8"></script>
+   
+    <script  src="js/core/Heuristic.js" charset="utf-8"></script>
+    <script  src="js/core/DiagonalMovement.js" charset="utf-8"></script>
+
+    <script  src="js/PathFinder/AStarFinder.js" charset="utf-8"></script>
+    <script  src="js/PathFinder/BreathFirstFinder.js" charset="utf-8"></script>
+    <script  src="js/PathFinder/DepthFirstFinder.js" charset="utf-8"></script>
+
+    <script  src="js/visual/View.js" charset="utf-8"></script>
+    <script  src="js/visual/Controller.js" charset="utf-8"></script>
+    <script  src="js/VirtualMachine/ProgramTranslator.js" charset="utf-8"></script>
+    <script  src="js/VirtualMachine/VM.js" charset="utf-8"></script>
+
+    <script  src="js/common.js" charset="utf-8"></script>
+    <script  src="js/main.js" charset="utf-8"></script>
+
+  </body>
+</html>

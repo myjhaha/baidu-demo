@@ -1,0 +1,69 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.container{
+  /* Just to center the form on the page */
+  width: 800px;
+  margin: 0 auto;
+}
+form{
+    /* To see the outline of the form */
+    padding: 3em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+form label {
+  display: inline-block;
+  width: 6em;
+  text-align: right;
+  margin-right: 0.5em;
+}
+input[type=submit], button{
+  text-align: center;
+  font-size: 1em;
+  height: 2em;
+  line-height: 2em;
+  padding: 0 1em;
+  margin-left: 6em;
+  margin-top: 1em;
+  color: white;
+  background-color: blue;
+  border-radius: 0.5em;
+  outline: none;
+}
+input[type=text]{
+  width: 20em;
+  height: 2em;
+  line-height: 2em;
+  display: inline-block;
+  position: relative;
+}
+form div + div {
+  margin-top: 2em;
+}
+.tip{
+  margin-left: 8.5em;
+  margin-top: 0.5em;
+  font-size: 0.75em;
+  font-weight: bolder;
+}
+.form-field-div.correct input[type=text]{
+  outline: 2px solid #ff3;
+}
+.form-field-div.correct p.tip{
+  color: #cc3;
+}
+
+.form-field-div.error input[type=text]{
+  outline: 2px solid #f63;
+}
+.form-field-div.error p.tip{
+  color: #f33;
+}
+
