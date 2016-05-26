@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>任务三十九 UI组件之冻结行列表格</title>
+    <meta charset="utf-8">
+    <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    table{
+      margin: 0;
+      text-align: center;
+      border-collapse: collapse;
+      min-width: 400px;
+    }
+    th,td{
+      border: 1px solid #999;
+      width: 80px;
+    }
+    th{
+      background-color: #ccc;
+      padding: 0.2em;
+    }
+    </style>
+  </head>
+  <body>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <table class="fix-title-table">
+      <thead>
+        <tr>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>数学</th>
+          <th>语文</th>
+          <th>英文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>大阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>二阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>三阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>四阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>大阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>二阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>三阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>四阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>大阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>二阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>三阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>四阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <table class="fix-title-table">
+      <thead>
+        <tr>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>数学</th>
+          <th>语文</th>
+          <th>英文</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>大阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>二阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>三阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>四阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>大阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>二阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>三阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>四阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>001</td>
+          <td>大阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>二阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>三阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>004</td>
+          <td>四阿哥</td>
+          <td>80</td>
+          <td>90</td>
+          <td>100</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+    <p>填充</p>
+  </body>
+  <script type="text/javascript">
+
+  window.onscroll = function(e){
+    var tables = document.querySelectorAll(".fix-title-table");
+    [].map.call(tables,function(node){
+      var thead = node.querySelector("thead");
+      var theadTr = thead.querySelector("tr");
+      var tbody = node.querySelector("tbody");
+      var docScroll = document.body.scrollTop;
+      //console.log("docScrol:"+docScroll);
+
+      var tableOffsetTop = node.offsetTop;
+      //console.log("tableOffsetTop:"+tableOffsetTop);
+
+      var tableCss = window.getComputedStyle(node, null);
+      var tableHeight = tableCss.getPropertyValue("height");
+      
+      //console.log("tableHeight:"+tableHeight);
+
+      node.style.position="relative";
+      if(docScroll > tableOffsetTop){
+        theadTr.style.position="fixed";
+        theadTr.style.top = "0px";
+        if(docScroll > tableOffsetTop + parseInt(tableHeight)){
+          theadTr.style.position = "absolute";
+        }
+      }else{
+        theadTr.style.position="static";
+      }
+    });
+  }
+
+ 
+    
+  </script>
+</html>

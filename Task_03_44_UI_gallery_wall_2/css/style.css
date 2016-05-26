@@ -1,0 +1,41 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  padding: 2em;
+}
+
+.media-box{
+  width: 80%;
+  box-shadow:0 0 5px 5px #0CC;
+  margin-bottom: 2em;
+}
+.ctrl-panel{
+  width: 300px;
+  background-color: rgba(256,256,256,0.6);
+  position: fixed;
+  right: 1em;
+  top: 1em;
+  border: 1px solid #300;
+  -webkit-box-shadow:0 0 10px 15px #0CC;  
+  -moz-box-shadow:0 0 10px 15px #0CC;  
+  box-shadow:0 0 5px 5px #0CC;
+  z-index: 100;
+
+}
+
+.ctrl-panel > .title{
+  width: 100%;
+  height: 1.5em;
+  line-height: 1.5em;
+  background-color: #33c;
+  text-align: center;
+  color: white;
+}
+
+.ctrl-panel > .content{
+  width: 100%;
+  padding: 0.5em;
+}

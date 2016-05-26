@@ -1,0 +1,282 @@
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.puzzle {
+  position: relative;
+  overflow:hidden;
+}
+.puzzle-n > div{
+  width: 160px;
+  height: 120px;
+  margin: 0.5em;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.puzzle .content{
+  position: absolute;
+  bottom: 0px;
+  color: white;
+  padding: 0.5em;
+  background-color: rgba(64,64,64,0.7);
+  font-size: 0.8em;
+}
+.puzzle img{
+  /*width: auto;
+  height: 100%;*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /*-moz-transform: perspective(1px) translate(-50%,-50%);*/
+  -moz-transform: perspective(1px) translate(-50%,-50%);
+  -webkit-transform: perspective(1px) translate(-50%,-50%);
+  -o-transform: perspective(1px) translate(-50%,-50%);
+  -ms-transform: perspective(1px) translate(-50%,-50%);
+  transform: perspective(1px) translate(-50%,-50%);
+}
+
+/** 1 **/
+.puzzle-1{
+  width:480px;
+  height:320px;
+  position: relative;
+}
+.puzzle-1 > div:nth-child(1){
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/** 2 **/
+.puzzle-2{
+  width:480px;
+  height:320px;
+  position: relative;
+}
+.puzzle-2 > div:nth-child(1){
+  width: 66.666%;
+  height: 100%;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+  /* for firefox */
+  clip-path: url('clipPath.svg#clip1'); 
+  overflow: hidden;
+}
+.puzzle-2 > div:nth-child(2){
+  width: 66.666%;
+  height: 100%;
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0 100%);
+  /* for firefox */
+  clip-path: url('clipPath.svg#clip2'); 
+  position: absolute;
+  right:0;
+  bottom:0;
+  overflow: hidden;
+}
+.puzzle-2 > div:nth-child(2) .content{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+/** 3 **/
+.puzzle-3{
+  width:480px;
+  height:320px;
+  position: relative;
+  border-collapse: collapse;
+}
+.puzzle-3 > div:nth-child(1){
+  width: 320px;
+  height: 100%;
+  position: relative;
+  float:left;
+  overflow: hidden;
+}
+.puzzle-3 > div:nth-child(2){
+  width: 160px;
+  height: 160px;
+  position: relative;
+  float:left;
+  overflow: hidden;
+}
+.puzzle-3 > div:nth-child(3){
+  width: 160px;
+  height: 160px;
+  position: relative;
+  float:left;
+  overflow: hidden;
+}
+/** 4 **/
+.puzzle-4{
+  width:480px;
+  height:320px;
+  position: relative;
+}
+.puzzle-4 > div:nth-child(1),
+.puzzle-4 > div:nth-child(2),
+.puzzle-4 > div:nth-child(3),
+.puzzle-4 > div:nth-child(4){
+  width: 50%;
+  height: 50%;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+/** 5 **/
+.puzzle-5{
+  width:480px;
+  height:360px;
+  position: relative;
+}
+.puzzle-5 > div:nth-child(1){
+  width: 320px;
+  height: 240px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+.puzzle-5 > div:nth-child(2){
+  width: 160px;
+  height: 120px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.puzzle-5 > div:nth-child(3){
+  width: 160px;
+  height: 120px;
+  position: absolute;
+  left: 160px;
+  bottom: 0;
+  overflow: hidden;
+}
+.puzzle-5 > div:nth-child(4){
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+.puzzle-5 > div:nth-child(5){
+  width: 160px;
+  height: 200px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+/** 6 **/
+.puzzle-6{
+  width:480px;
+  height:360px;
+  position: relative;
+}
+.puzzle-6 > div:nth-child(1){
+  width: 66.666666%;
+  height: 66.666666%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+.puzzle-6 > div:nth-child(2),
+.puzzle-6 > div:nth-child(3){
+  width: 33.333333%;
+  height: 33.333333%;
+  position: relative;
+  float: right;
+  overflow: hidden;
+}
+.puzzle-6 > div:nth-child(4),
+.puzzle-6 > div:nth-child(5),
+.puzzle-6 > div:nth-child(6){
+  width: 33.333333%;
+  height: 33.333333%;
+  position: relative;
+  float: right;
+  overflow: hidden;
+}
+/** 7 **/
+.puzzle-7{
+  width:480px;
+  height:360px;
+  position: relative;
+}
+.puzzle-7 > div:nth-child(1){
+  width: 66.666666%;
+  height: 66.666666%;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+.puzzle-7 > div:nth-child(2),
+.puzzle-7 > div:nth-child(3){
+  width: 33.333333%;
+  height: 33.333333%;
+  position: relative;
+  float: right;
+  overflow: hidden;
+}
+.puzzle-7 > div:nth-child(4), 
+.puzzle-7 > div:nth-child(5), 
+.puzzle-7 > div:nth-child(6), 
+.puzzle-7 > div:nth-child(7){
+  width: 25%;
+  height: 33.333333%;
+  position: relative;
+  float: right;
+  overflow: hidden;
+}
+/** 8 **/
+.puzzle-8{
+  width:480px;
+  height:480px;
+  position: relative;
+}
+.puzzle-8 > div:nth-child(1){
+  width: 75%;
+  height: 75%;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}
+.puzzle-8 > div:nth-child(2), 
+.puzzle-8 > div:nth-child(3), 
+.puzzle-8 > div:nth-child(4), 
+.puzzle-8 > div:nth-child(5), 
+.puzzle-8 > div:nth-child(6), 
+.puzzle-8 > div:nth-child(7),
+.puzzle-8 > div:nth-child(8){
+  width: 25%;
+  height: 25%;
+  position: relative;
+  float: right;
+  overflow: hidden;
+}
+/** 9 **/
+.puzzle-9{
+  width:480px;
+  height:480px;
+  position: relative;
+}
+.puzzle-9 > div:nth-child(1), 
+.puzzle-9 > div:nth-child(2), 
+.puzzle-9 > div:nth-child(3), 
+.puzzle-9 > div:nth-child(4), 
+.puzzle-9 > div:nth-child(5), 
+.puzzle-9 > div:nth-child(6), 
+.puzzle-9 > div:nth-child(7),
+.puzzle-9 > div:nth-child(8),
+.puzzle-9 > div:nth-child(9){
+  width: 33.333333%;
+  height: 33.333333%;
+  position: relative;
+  float: left;
+  overflow: hidden;
+}

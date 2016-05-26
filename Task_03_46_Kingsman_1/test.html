@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>任务四十六：王牌特工（一） TEST</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <!-- 世界显示屏 -->
+  <canvas id="canvas" width="600" height="800"></canvas>
+  <div id="control-panal">
+    <button id="pause-btn">暂停/运行</button><br>
+    <button id="create-player-btn">创建玩家</button><br>
+    <input type="radio" name="behaviors" id="seek-radio" value="1"/><label for="seek-radio">穿过</label>
+    <input type="radio" name="behaviors" checked="checked" id="arrive-radio" value="2"/><label for="arrive-radio">到达</label>
+    <input type="radio" name="behaviors" id="path-follow-radio" value="3"/><label for="path-follow-radio">路径</label>
+    <br>
+    <button id="new-path-btn">生成新路径</button>
+  </div>
+
+
+  <script  src="js/2D/Vector2D.js" charset="utf-8"></script>
+  <script  src="js/2D/C2DMatrix.js" charset="utf-8"></script>
+  <script  src="js/util.js" charset="utf-8"></script>
+  <script  src="js/common/common.js" charset="utf-8"></script>
+  <script  src="js/jClass.js" charset="utf-8"></script>
+
+
+  <script  src="js/Game/BaseGameEntity.js" charset="utf-8"></script>
+  <script  src="js/Game/MovingEntity.js" charset="utf-8"></script>
+  
+  <script  src="js/Kingsman/Path.js" charset="utf-8"></script>
+  <script  src="js/Kingsman/World.js" charset="utf-8"></script>
+  <script  src="js/Kingsman/Vehicle.js" charset="utf-8"></script>
+  <script  src="js/Kingsman/SteeringBehavior.js" charset="utf-8"></script>
+  
+  <script  src="js/Kingsman/KeyManager.js" charset="utf-8"></script>
+  <script  src="js/Kingsman/Game.js" charset="utf-8"></script>
+  <script  src="js/test.js" charset="utf-8"></script>
+  </body>
+</html>

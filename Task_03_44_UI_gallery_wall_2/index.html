@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>任务四十四：UI组件 - 多功能相册之瀑布布局</title>
+  <meta charset="utf-8">
+  <!-- 主页样式 -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 相册样式 -->
+  <link rel="stylesheet" href="mylib/waterfall-album.css">
+</head>
+<body>
+  <div class="ctrl-panel">
+    <div class="title">操作</div>
+    <div class="content">
+      <button id="add-img-btn">添加图片</button>
+      <input id="img-url-txt" type="text" value="img/002.png"><br><br>
+      <button id="add-random-img-btn">添加随机图片</button><br><br>
+      添加本地图片<input type="file" name="imgUpload" id="file-upload" multiple="true"  />
+      <br><br>
+      <button id="add-col-btn">添加一列并重排</button>&nbsp;<span>现有</span><span id="column-num"></span><span>列</span>
+      <br><br>
+      <span>间距: </span><input id="gutter-slider" type="range" min="0" max="30," value="5" /> <span id="gutter-span">5</span>
+
+    </div>
+  </div>
+  <div class="media-box">
+    <div id="water-fall-album-container"></div>
+  </div>
+
+  代码写得比较乱
+  
+
+  
+<!-- 主页 END -->
+<!-- 主页js -->
+<script src="js/main.js"></script>
+<!-- 相册库js -->
+<script src="mylib/waterfall-album.js"></script>
+</body>
+<html>

@@ -1,0 +1,28 @@
+:root, body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body{
+  background-color: #fff;
+  overflow: hidden;
+}
+#canvas{
+  border: 1px solid #00c;
+}
+#control-panal{
+  float: right;
+  background-color: #ccc;
+  border: 1px solid #999;
+  min-width:200px;
+  padding: 5px;
+  margin:5px;
+}

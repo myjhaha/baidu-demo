@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button{
+  padding: 0.4em;
+}
+
+
+.table-content{
+  width: 800px;
+  min-height: 300px;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  margin: 1em;
+  padding: 1em;
+}
+
+
+/**** 排序表格的样式 定义 BEGIN ****/
+table.sortable-table{
+  border-collapse: collapse;
+  border: none;
+  width: 100%;
+}
+table.sortable-table td,table.sortable-table th{
+    border: 1px solid #000;
+}
+table.sortable-table th{
+  background-color: #ccc;
+  position: relative;
+  overflow: hidden;
+}
+table.sortable-table th div.sort-up-btn{
+  float:right;
+  display: inline-block;
+  color: #666;
+  margin-right: 0.4em
+}
+table.sortable-table th div.sort-down-btn{
+  float:right;
+  display: inline-block;
+  color: #666;
+}
+table.sortable-table th div.sort-up-btn:hover,table.sortable-table th div.sort-down-btn:hover{
+  color:#fff;
+  cursor: pointer;
+}
+table.sortable-table th div.sort-up-btn:before{
+  content:"▲";
+  padding: 0 0.2em;
+}
+table.sortable-table th div.sort-down-btn:before{
+  content:"▼";
+  padding: 0 0.2em;
+}
+/**** 排序表格的样式 定义 END ****/

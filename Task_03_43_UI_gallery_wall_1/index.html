@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>任务四十三：UI组件 - 多功能相册之拼图布局</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- 相册库-->
+  <link rel="stylesheet" href="mylib/puzzle-album.css">
+</head>
+<body>
+<!--
+  <div class="media_box">
+    <div class="puzzle puzzle-5 clearfix">
+      <div>
+        <img src="img/001.jpg" alt="">
+        <div class="content">
+          <h3>Title</h3>
+          <p>This is a picture</p>
+        </div>
+      </div>
+      <div>
+        <img src="img/002.jpg" alt="">
+        <div class="content">
+          <h3>Title</h3>
+          <p>This is a picture</p>
+        </div>
+      </div>
+      <div>
+        <img src="img/003.jpg" alt="">
+        <div class="content">
+          <h3>Title</h3>
+          <p>This is a picture</p>
+        </div>
+      </div>
+      <div>
+        <img src="img/004.jpg" alt="">
+        <div class="content">
+          <h3>Title</h3>
+          <p>This is a picture</p>
+        </div>
+      </div>
+      <div>
+        <img src="img/004.jpg" alt="">
+        <div class="content">
+          <h3>Title</h3>
+          <p>This is a picture</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+-->
+<div style="padding:1em;">
+  <button id="add-img-btn">添加图片</button>
+  <input id="img-url-txt" type="text" value="img/002.png">&nbsp;&nbsp;
+  <button id="add-random-img-btn">添加随机图片</button><br><br>
+  <label for="file-upload">添加本地图片</label><input type="file" name="imgUpload" id="file-upload" /> 
+</div>
+<hr>
+<div class="container">
+  <div id="puzzle-album">
+  
+  </div>
+</div>
+<hr>
+<p>说明：没有做浏览器兼容测试</p>
+<p>待完成：异步加载应该加一个锁定或进度条</p>
+<p>待完成：未实现点击单张图片全屏显示</p>
+
+<script src="js/main.js"></script>
+<!-- 相册库 -->
+<script src="mylib/puzzle-album.js"></script>
+</body>
+
+</html>

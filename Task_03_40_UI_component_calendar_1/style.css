@@ -1,0 +1,21 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#container{
+  margin: 20px;
+  border-radius: 1em;
+  border: 1px solid #ccc;
+  min-width: 200px;
+  min-height: 200px;
+  display: flex;
+  display: -webkit-flex; /* Safari */
+  justify-content: center;
+}
+/*
+td,th{
+  border-style: solid;
+}
+*/

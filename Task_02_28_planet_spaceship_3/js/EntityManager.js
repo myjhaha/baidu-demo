@@ -43,4 +43,5 @@ var EntityManager = (function(){
       return instantiated;
     }
   };
+  //return init();
 })(); 

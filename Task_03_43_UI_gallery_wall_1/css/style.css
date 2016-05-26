@@ -1,0 +1,15 @@
+*{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+p{
+  margin:1em;
+}
+
+/********    ********/
+.container{
+  display: block;
+  margin: 1em;
+  padding: 0.5em;
+}

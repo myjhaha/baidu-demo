@@ -1,0 +1,105 @@
+.waterfall, .waterfall *{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.waterfall{
+  position: relative;
+}
+.waterfall-body{
+  position: relative;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;  /* 轴方向 */
+  flex-wrap: nowrap;    /* 不换行 */
+  justify-content: space-between; /* item的对齐方式 */
+  align-items: flex-start; /* 交叉轴上对齐方式 */
+}
+
+.waterfall-body img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.waterfall-body .content{
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 0.5em;
+/*  position:absolute;
+  bottom: 0;*/
+}
+.waterfall-body .content > div{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow:hidden; 
+}
+.waterfall-body .content > div.title{
+  font-weight: bolder;
+  font-size: 1em;
+}
+.waterfall-body .content > div.detail{
+  font-size: 0.6em;
+}
+.waterfall-body > div.waterfall-col:last-child{
+  margin-right: 0;
+}
+.waterfall-body > div.waterfall-col > div{
+  /*width: 100%;*/
+  height: auto;
+  padding: 0;
+  position: relative;
+  margin-bottom:0em;
+}
+.waterfall-body > div.waterfall-col > div:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+
+
+.waterfall > .loading-display{
+  width: 100%;
+  max-height:  100%;
+  height: 60px;
+  font-size: 3em;
+  color: #fff;
+  background-color: rgba(0,0,0,0.4);
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+}
+/* full screen display */
+.fullscreen-display{
+  width: 100%;
+  height: 100%;
+  background-color:rgba(0,0,0,0.4);
+  position: fixed;
+  top:0;
+  left:0;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+  flex-direction: row;  /* 轴方向 */
+  flex-wrap: nowrap;    /* 不换行 */
+  justify-content: center; /* item的对齐方式 */
+  align-items: center; /* 交叉轴上对齐方式 */
+}
+.fullscreen-display > div.img-div{
+  box-shadow:0 0 5px 5px #0CC;
+  background-color: rgba(256,256,0,0.2);
+}
+.fullscreen-display > div.img-div > img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* for javascript */
+.waterfall-body > div.waterfall-col{
+  width: 20%;
+}
+
+

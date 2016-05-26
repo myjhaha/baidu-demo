@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>任务三十七：UI组件（一）- 浮出层</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>单击按钮弹出自定义对话框，宽度为500像素</h1>
+  
+    用法：在页面上自定义一个对话框，然后style属性设为：style="display:none;"，new 一个即可使用<br>
+    做得比较简陋，将就能用吧。。。。<br>
+    <button id="pop-dialog-btn">登录</button>
+
+    <div id="neat-dialog-test" style="display:none;">
+      <form action="#" method="post">
+        <h2>登录</h2>
+        <div class="form-field-div" id="div-1">
+          <label>名字</label><input name="name" id="txt-1" type="text"/>
+          <p class="tip"></p>
+        </div>
+        <div class="form-field-div" id="div-2">
+          <label>E-mail</label><input name="e-mail" id="txt-2" type="text"/>
+          <p class="tip"></p>
+        </div>
+        <div class="form-field-div" id="div-3">
+          <label>电话</label><input name="telephone" id="txt-3" type="text"/>
+          <p class="tip"></p>
+        </div>
+        <div class="form-field-div" id="div-4">
+          <label>邮寄地址</label><input name="address" id="txt-4" type="text"/>
+          <p class="tip"></p>
+        </div>
+        <input type="submit" value="提交" id="submit-btn">
+      </form>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
