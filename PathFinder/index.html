@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>自动寻路演示</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 世界显示屏 -->
+  <canvas id="canvas-world-view" width="600" height="615"></canvas>
+  <div id="ctrl-panal">
+    <fieldset>
+      <legend>地图编辑</legend>
+      <input type="radio" name="target-setting" id="set-start-radio" value="start" checked="checked"><label for="set-start-radio">起点</label><br>
+      <input type="radio" name="target-setting" id="set-end-radio" value="end"><label for="set-end-radio">终点</label><br>
+      <input type="radio" name="target-setting" id="set-block-radio" value="block"><label for="set-block-radio">障碍</label><br>
+      <input type="radio" name="target-setting" id="set-empty-radio" value="empty"><label for="set-empty-radio">平地</label><br>
+    </fieldset>
+    <!-- 
+    <fieldset>
+      <legend>障碍类型</legend>
+      <input type="radio" name="block-type" id="set-empty" value="1" checked="checked"><label for="set-empty">空地</label><br>
+      <input type="radio" name="block-type" id="set-wall" value="2" checked="checked"><label for="set-wall">墙</label><br>
+      <input type="radio" name="block-type" id="set-water" value="3"><label for="set-water">水</label><br>
+      <input type="radio" name="block-type" id="set-grass" value="4"><label for="set-grass">草地</label><br>
+    </fieldset>
+    -->
+    <hr>
+    <fieldset>
+      <legend>寻路算法</legend>
+      <input type="radio" name="behaviors" id="astar-radio" value="astar" checked="checked"><label for="astar-radio">A*算法</label><br>
+      <input type="radio" name="behaviors" id="dfs-radio" value="dfs"><label for="dfs-radio">深度优先</label><br>
+      <input type="radio" name="behaviors" id="bfs-radio" value="bfs"><label for="bfs-radio">广度优先</label><br>
+      <input type="radio" name="behaviors" id="dj-radio" value="dijkstra"><label for="dj-radio">Dijkstra算法</label><br>
+      <input type="radio" name="behaviors" id="dbfs-radio" value="dbfs"><label for="dbfs-radio">双向广度优先搜索</label><br>
+    </fieldset>
+    <hr>
+<!--     <fieldset>
+      <legend>对角通过方式</legend>
+      <input type="radio" name="diagonal-movement" id="always-radio" value="always" checked="checked"><label for="always-radio">总是可以</label><br>
+      <input type="radio" name="diagonal-movement" id="never-radio" value="never"><label for="never-radio">从不</label><br>
+      <input type="radio" name="diagonal-movement" id="most-one-radio" value="most-one"><label for="most-one-radio">最多一个障碍</label><br>
+      <input type="radio" name="diagonal-movement" id="no-obstacles-radio" value="no-obstacles"><label for="no-obstacles-radio">没有障碍</label><br>
+    </fieldset> -->
+    <hr>
+    <fieldset>
+      <legend>A*算法距离估计方法</legend>
+      <input type="radio" name="heuristic" id="manhattan-radio" value="manhattan" checked="checked"><label for="manhattan-radio">曼哈顿距离</label><br>
+      <input type="radio" name="heuristic" id="euclidean-radio" value="euclidean"><label for="euclidean-radio">欧拉距离</label><br>
+      <input type="radio" name="heuristic" id="chebyshev-radio" value="chebyshev"><label for="chebyshev-radio">切比雪夫距离</label><br>
+    </fieldset>
+    <fieldset>
+      <legend>操作</legend>
+      <button id="go-btn">Go</button>
+    </fieldset>
+
+
+    
+  </div>
+  <!-- 公共函数 -->
+  <script src="js/common.js"></script>
+  <!-- data -->
+  <script src="js/Data/initData.js"></script>
+  <!-- -->
+  <script src="js/2D/Vector2D.js"></script>
+  <!-- DS -->
+  <script src="js/DataStructure/common.js"></script>
+  <script src="js/DataStructure/util.js"></script>
+  <script src="js/DataStructure/SparseGraph.js"></script>
+  <!-- algorithm -->
+  <script src="js/Algorithm/Graph_SearchAStar.js"></script>
+  <script src="js/Algorithm/Graph_SearchBFS.js"></script>
+  <script src="js/Algorithm/Graph_SearchDFS.js"></script>
+  <script src="js/Algorithm/Graph_SearchDijkstra.js"></script>
+  <script src="js/Algorithm/Graph_SearchDBFS.js"></script>
+  <!-- world -->
+  <script src="js/Entity/PathFinder.js"></script>
+  <script src="js/Entity/GridMap.js"></script>
+  <script src="js/Entity/World.js"></script>
+  <script src="js/Entity/Game.js"></script>
+  <!-- 主函数 -->
+  <script src="js/main.js"></script>
+</body>
+</html>

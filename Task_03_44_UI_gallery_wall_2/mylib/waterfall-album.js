@@ -36,10 +36,12 @@
     //-- 所有列元素 --//
     var m_ColumnDIV = [];
     //-- 加载图片时显示的内容 --//
-    var m_LoadingDisplay = createLoadingDisplay();
+    var m_LoadingDisplay = new LoadingDisplay(m_Container);
     //-- 全屏时显示的内容 --//
     var m_FullScreenDisplay = new FullScreenDisplay();
-    m_Container.appendChild(m_LoadingDisplay);
+    //m_Container.appendChild(m_LoadingDisplay);
+    //-- 锁 --//
+    var m_Lock = new Lock();
 
     if(m_Container == null){
       console.warn("找不到id为[" + m_ContainerSelector +"]的DOM元素");
@@ -61,35 +63,6 @@
     
 
     //---- 私有方法 ----//
-    /**
-     * 锁方法
-     */
-    //-- 加锁 --//
-    function lock(){
-      m_Loadingflag = 1; //非0时表示锁定
-      m_LoadingDisplay.style.display = "block";
-    }
-    //-- 解锁 --//
-    function unlock(){
-      m_Loadingflag = 0; //非0时表示锁定
-      m_LoadingDisplay.style.display = "none";
-    }
-    //-- 检查锁 --//
-    function isLock(){
-      return m_Loadingflag != 0;
-    }
-
-    /**
-     * 创建一个loading的显示层，loading时显示这个
-     */
-    function createLoadingDisplay(){
-      var div = document.createElement("div");
-      div.className = "loading-display";
-      div.innerHTML = "Loading.....";
-      div.style.display = "none";
-      return div;
-    }
-
     /**
      * 设置列数为colNum
      * @param {number} 列数
@@ -117,7 +90,8 @@
      * 更新列宽与间距
      */
     function updateColumnsCSS(){
-      var waterfallBodyWidth = parseFloat(getProperty("width",m_WaterfallBody));
+      //var waterfallBodyWidth = parseFloat(getProperty("width",m_WaterfallBody));
+      var waterfallBodyWidth = m_WaterfallBody.offsetWidth;
       if( (waterfallBodyWidth-m_Gutter[0]*(m_ColumnsNum-1)) <0 ){
         m_Gutter[0] = 0;
       }
@@ -154,7 +128,6 @@
 
     /**
      * 向相册添加图片，必须做异步处理，不然计算高度将出错
-     * 直接追加图片
      * @param { imgJSOM[] } images 图片数据对象数组 {url: string, title:string, detail:string}
      * @param { Function } [onLoadCallback] 所有图片加载完毕的回调函数: function(ture|false)
      * @return { Image[] } 返回添加的图片
@@ -162,26 +135,36 @@
     function _addImage(imageJSONs, onLoadCallback){
       var loadingflag = true;
       var imageToLoadNum = imageJSONs.length; //闭包？
-      lock();
-      if(imageJSONs.length <= 0){
-        unlock();
-        return;
+      if(imageJSONs == null ||imageJSONs.length <= 0){
+        return ;  
       }
+      
       for(var i=0;i<imageJSONs.length;i++){
+        if(imageJSONs[i] == null){continue;}
+        m_Lock.lock();
+        if(m_Lock.isLocking()){
+          m_LoadingDisplay.show();
+        }else{
+          m_LoadingDisplay.hide();
+        }
         var img = new Image();
+        //把收到的信息塞进dataset里
         img.dataset.info = i;
         img.dataset.title = imageJSONs[i].title;
         img.dataset.detail = imageJSONs[i].detail;
+
         img.src = imageJSONs[i].url;
         img.onload = function(e){ //加载成功回调
+          console.log("单张图片 序号["+ this.dataset.info +"]加载成功.");
+          m_Lock.unlock();
+          if(m_Lock.isLocking()){
+            m_LoadingDisplay.show();
+          }else{
+            m_LoadingDisplay.hide();
+          }
           //console.log(this);
-          //this.dataset.info = m_AutoIncrement++;
-          console.log("图片["+ this.dataset.info +"]加载成功.");
-          //console.log(this);
-
           if(--imageToLoadNum == 0){
-            console.log("图片全部加载完毕.");
-            unlock();
+            console.log("全部加载完毕.");
             if(onLoadCallback instanceof Function) {
               console.log("callback invoke");
               //console.log(onLoadCallback);
@@ -206,16 +189,16 @@
           minHColDiv.appendChild(imgDiv);
         }
         img.onerror = function(e){
-          console.log("图片["+this.dataset.info+"]加载失败.");
-          loadingflag = false;
-          if(onLoadCallback instanceof Function) {
-            console.log("callback invoke false");
-            console.log(onLoadCallback);
-            onLoadCallback(true);
+          console.log("单张图片 序号["+this.dataset.info+"]加载失败.");
+          m_Lock.unlock();
+          if(m_Lock.isLocking()){
+            m_LoadingDisplay.show();
+          }else{
+            m_LoadingDisplay.hide();
           }
+          loadingflag = false;
           if(--imageToLoadNum == 0){
-            console.log("图片全部加载完毕.");
-            unlock();
+            console.log("全部加载完毕.");
             if(onLoadCallback instanceof Function) {
               console.log("callback invoke");
               //console.log(onLoadCallback);
@@ -264,13 +247,15 @@
      */
     this.setImage = function(imageJSONs,opts){
       if(! (imageJSONs instanceof Array) ){
-        this.setImage([imageJSONs]);
+        this.setImage([imageJSONs],opts);
         return ;
       }
+      m_Lock = new Lock(); //初始化一个新锁
       m_WaterfallBody.innerHTML = "";
       m_Opts = opts || {};
       m_ColumnsNum = opts.column || 1;
       m_Gutter = opts.gutter || [0,0];
+      m_FullScreenDisplay.hide();
       for(var i=0;i<m_ColumnsNum;i++){
         var div = document.createElement("div");
         div.className = "waterfall-col";
@@ -286,9 +271,10 @@
      *        对象格式：{url: string, title:string, detial:string}
      */
     this.addImage = function(imageJSONs,onLoadCallback){
-      if(isLock()){
-        return false; //不执行
-      }
+      // if(isLock()){
+      //   return false; //不执行
+      // }
+      if(imageJSONs == null){ return ;}
       if(! (imageJSONs instanceof Array)) {
         return _addImage([imageJSONs],onLoadCallback);
       }else{
@@ -301,7 +287,7 @@
      * @return {boolean} 返回是否成功
      */
     this.addColumn = function(){
-      if(isLock()){
+      if(m_Lock.isLocking()){
         return false; //不执行
       }
       var colNum = m_ColumnsNum + 1;
@@ -312,9 +298,9 @@
      * @return {boolean} 返回是否成功
      */
     this.setGutter = function(gutter){
-      if(isLock()){
-        return false; //不执行
-      }
+      // if(isLock()){
+      //   return false; //不执行
+      // }
       if(typeof gutter === 'number' || typeof gutter === 'string'){
         m_Gutter[0] = gutter;
         m_Gutter[1] = gutter;
@@ -346,19 +332,23 @@
       var minHDiv = getMinHeightColumn();
       var minHDivHeight = minHDiv.offsetTop  + minHDiv.offsetHeight;
       //console.log("containerHeight:"+containerHeight);
-      //console.log("m_Container.offsetTop:"+m_Container.offsetTop);
-      if(screenHeight > minHDivHeight+200 ){
+      //console.log("minHDiv.offsetTop:"+minHDiv.offsetTop);
+      if(screenHeight > minHDivHeight ){
         //_addImage(getNewImage());
         return true;
       }else{
         return false;
       }
     }
+
+    this.isLocking = function(){
+      return m_Lock.isLocking();
+    }
   }
 
 
   //---- 封装的容器 ----//
-  //-- 全屏显示窗口 --//
+  //-- 全屏显示窗口原型 --//
   function FullScreenDisplay () {
     var _this = this;
     var m_lock = true;
@@ -370,13 +360,12 @@
     // m_View.appendChild(m_ImgDiv);
     var m_Image = new Image();
     var m_isView = false;
-
     document.body.appendChild(m_View);
     //-- 锁方法 --//
     this.lock = function(){ m_lock = true;}
     this.unLock = function(){ m_lock = false;}
     this.isLock = function(){ return m_lock;}
-
+    //-- 全屏显示 --//
     this.showImage = function(image){
       if(image instanceof Image){
         this.setImage(image.src);
@@ -412,23 +401,52 @@
       }
       m_View.style.display = "flex";
     }
-
     this.show = function(){
       m_View.style.display = "flex";
       document.body.style.overflow = 'hidden';
-      
     }
-
     this.hide = function(){
       m_View.style.display = "none";
       document.body.style.overflow = 'auto'
     }
+    //-- 点击空白后隐藏 --//
     addEventHandler(m_View, "click", function(e){
       var target = e.target;
       if(target.classList.contains("fullscreen-display")){
         _this.hide();
       }
     });
+  }
+  //---- 锁原型 ----//
+  function Lock(){
+    var m_lockNum =0;
+    this.lock = function(){
+      m_lockNum++;
+      console.log("加锁：m_lockNum["+m_lockNum +"]");
+    }
+    this.unlock = function(){
+      m_lockNum --;
+      console.log("解锁：m_lockNum["+m_lockNum +"]");
+    }
+    this.isLocking = function(){
+      //console.log("检查锁：m_lockNum["+m_lockNum +"]");
+      return m_lockNum > 0;
+    }
+  }
+  
+  //---- loading的显示层原型 --//
+  function LoadingDisplay(element){
+    var div = document.createElement("div");
+    div.className = "loading-display";
+    div.innerHTML = "Loading.....";
+    div.style.display = "none";
+    element.appendChild(div);
+    this.hide = function(){
+      div.style.display="none";
+    }
+    this.show = function(){
+      div.style.display="block";
+    }
   }
   
   //---- 添加事件代理的方法 ----//

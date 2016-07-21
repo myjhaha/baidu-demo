@@ -1,0 +1,46 @@
+:root, body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body{
+  background-color: #ccc;
+  overflow: hidden;
+}
+
+#canvas-world-view{
+  border: 1px solid #00c;
+  background-color: #fff;
+}
+
+/** 控制面板 **/
+#ctrl-panal{
+  background-color: rgba(0,32,0,0.5);
+  border: 1px solid #999;
+  color:#fff;
+  min-width:300px;
+  min-height: 200px;
+  padding: 5px;
+  position:fixed;
+  top:5px;
+  right:5px;
+}
+#ctrl-panal > fieldset{
+  width: 100%;
+  margin: 4px auto;
+  padding: 3px 3px 3px 8px;
+  border: 1px solid #aaa;
+  border-radius: 5px; 
+}
+
+#ctrl-panal button{
+  padding: 5px;
+}

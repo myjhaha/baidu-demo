@@ -18,9 +18,10 @@ var fileUploadBtn = $("#file-upload");
 var addColBtn = $("#add-col-btn");
 var gutterChangeSlider = $("#gutter-slider");
 
+var album = WaterfallAlbum("water-fall-album-container");
 
 window.onload = function(e){
-  var album = WaterfallAlbum("water-fall-album-container");
+  //-- 相册实例 --//
   var imgJSON_1 = {
                     url:"img/001.png", 
                     title:"This is Title 1", 
@@ -41,10 +42,10 @@ window.onload = function(e){
                     title:"This is Title 4", 
                     detail:"detail detail detail"
                   } ;
-
   album.setImage(
       // imageArray
       [ imgJSON_1, imgJSON_2, imgJSON_3, imgJSON_4 ],  
+      //null,
       // option   
       {                                                 
         column: 4,
@@ -66,18 +67,6 @@ window.onload = function(e){
 
   //-- 随机从图片测试网站添加 --//
   addEventHandler(addRanImgBtn,"click",function(e){
-    // var w = Math.round(200 * Math.random()) + 100;
-    // var h = Math.round(200 * Math.random()) + 100;
-    // var R = Math.floor(239 * Math.random()) + 16; 
-    // var G = Math.floor(239 * Math.random()) + 16; 
-    // var B = Math.floor(239 * Math.random()) + 16; 
-    // var bgColor = R.toString(16) + G.toString(16) + B.toString(16); back = R.toString(16) + G.toString(16) + B.toString(16);
-    // var fontColor = (255 - R).toString(16) + (255 - G).toString(16) + (255 - B).toString(16); fore = (255 - R).toString(16) + (255 - G).toString(16) + (255 - B).toString(16);
-    // var url = ("http://placehold.it/" + w + "x"+ h+"/" + bgColor +"/" + fontColor );
-    // album.addImage( {  url: url, 
-    //                   title:"Title " + Math.floor((Math.random()*100)), 
-    //                   detail:"detail detail detail"}  );
-    // test :http://placehold.it/120x160/3399ff/ffffff
     album.addImage(getNewRandomImageJSON());
   });
 
@@ -115,34 +104,52 @@ window.onload = function(e){
 
   //-- 滚动页面事件响应 --//
   addEventHandler(window,"scroll",function(e){
-    function addImg(e){               // 回调函数
-      if(album.isScrollToBottom()){
-        console.log("看到底部了，要继续加载新图片");
-        album.addImage(getNewRandomImageJSON(),addImg);
-      }else{
-        console.log("足够多图了，先不加载");
-      }
+    if(album.isLocking()){
+      console.log("相册正在加载图片中，先不执行新的加载任务");
+      return;
     }
+      
     addImg();
   });
   
-
   test();
 }
 
 function test(){
   //console.log(document.body);
+  addImg();
 }
 function getNewRandomImageJSON(){
   var w = Math.round(200 * Math.random()) + 100;
-    var h = Math.round(200 * Math.random()) + 100;
-    var R = Math.floor(239 * Math.random()) + 16; 
-    var G = Math.floor(239 * Math.random()) + 16; 
-    var B = Math.floor(239 * Math.random()) + 16; 
-    var bgColor = R.toString(16) + G.toString(16) + B.toString(16); back = R.toString(16) + G.toString(16) + B.toString(16);
-    var fontColor = (255 - R).toString(16) + (255 - G).toString(16) + (255 - B).toString(16); fore = (255 - R).toString(16) + (255 - G).toString(16) + (255 - B).toString(16);
-    var url = ("http://placehold.it/" + w + "x"+ h+"/" + bgColor +"/" + fontColor );
-    return {  url: url, 
-                      title:"Title " + Math.floor((Math.random()*100)), 
-                      detail:"detail detail detail"}  ;
+  var h = Math.round(200 * Math.random()) + 100;
+  var R = Math.floor(239 * Math.random()) + 16; 
+  var G = Math.floor(239 * Math.random()) + 16; 
+  var B = Math.floor(239 * Math.random()) + 16; 
+  var bgColor = R.toString(16) + G.toString(16) + B.toString(16); back = R.toString(16) + G.toString(16) + B.toString(16);
+  var fontColor = (255 - R).toString(16) + (255 - G).toString(16) + (255 - B).toString(16); fore = (255 - R).toString(16) + (255 - G).toString(16) + (255 - B).toString(16);
+  var url = ("http://placehold.it/" + w + "x"+ h+"/" + bgColor +"/" + fontColor );
+  return {  url: url, 
+                    title:"Title " + Math.floor((Math.random()*100)), 
+                    detail:"detail detail detail"}  ;
+}
+
+//-- 添加图片的回调函数 --//
+/**
+ * 一直加到看不到相册的询问为止，在window.onscroll中调用最好
+ */
+function addImg(e){               
+  if(album.isScrollToBottom()){
+    console.log("看到底部了，要继续加载新图片");
+    album.addImage(getNewRandomImageJSON(), addImg);
+  }else{
+    console.log("足够多图了，先不加载");
+  }
+}
+function addImg2(e){               
+  if(album.isScrollToBottom()){
+    console.log("看到底部了，要继续加载新图片");
+    album.addImage(getNewRandomImageJSON(), addImg);
+  }else{
+    console.log("足够多图了，先不加载");
+  }
 }
