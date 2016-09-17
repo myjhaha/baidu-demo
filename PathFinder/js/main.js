@@ -18,7 +18,19 @@ var chebyshevRadio =$("#chebyshev-radio");
 
 var goBtn = $("#go-btn");
 
+function checkSupport(){
+  try {
+    document.createElement("canvas").getContext("2d");
+    document.getElementById("support").innerHTML = "HTML5 Canvas is supported in your browser.";
+  } 
+  catch (e) {
+    document.getElementById("support").innerHTML = "HTML5 Canvas is NOT supported in your browser.";
+  } 
+}
+
 function initPage(){
+  checkSupport();
+
   addEventHandler(goBtn,"click",goEvent);
 
   addEventHandler(canvas,"mousedown",onCanvasEvent);
@@ -44,6 +56,7 @@ function initPage(){
 }
 
 function goEvent(e){
+  alert("gogo");
   Game.runPathFinder();
 }
 
@@ -128,15 +141,21 @@ function animate() {
   requestAnimationFrame(_update);
 }
 
-window.onload = function(e){
+//window.onload = function(e){
+//  alert("onload...");
+
+//}
+
+// main function
+// onload is fucked by mobilephone
+(function (){
   initPage();
-
  // test_2();
-
   Game.init();
-
   animate();
-}
+})();
+
+
 
 function test(arg){
   //var gridmap = new GridMap(gridMapData);
