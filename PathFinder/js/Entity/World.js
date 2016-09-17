@@ -17,6 +17,7 @@ var World = (
     
     //-- OPT --//
     init: function(data){
+      //alert("World.init")
       //m_GridRows, m_GridCols, m_GridNodeWidth, m_Matrix
       m_Grid = new GridMap();
       m_Grid.init(data.row, data.col, data.width, data.matrix);
@@ -26,15 +27,18 @@ var World = (
       // m_PathFinder.init({grid:m_Grid});
     },
     getGridMap: function(){
+      //alert("World.getGridMap");
       return m_Grid;
     },
     createGraph: function(){
       var graph = new SparseGraph();
     },
     getStartingPoint: function(){
+      //alert("World.getStartingPoint - "+[m_Start[0],m_Start[1]]);
       return [m_Start[0],m_Start[1]];
     },
     getEnddingPoint: function(){
+      // alert("World.getEnddingPoint - "+[m_End[0],m_End[1]]);
       return [m_End[0],m_End[1]];
     },
     setStartingPointAtPos: function(x,y){

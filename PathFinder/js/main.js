@@ -149,55 +149,12 @@ function animate() {
 // main function
 // onload is fucked by mobilephone
 (function (){
+
   initPage();
+
  // test_2();
   Game.init();
+  //alert("ahaha");
   animate();
 })();
 
-
-
-function test(arg){
-  //var gridmap = new GridMap(gridMapData);
-  var gnode = new GraphNode( 0,
-                                { 
-                                  pos: new Vector2D(5,5),
-                                  index2D: [0,0],
-                                  width: 11,
-                                });
-  console.log(typeof gnode);
-  console.log(gnode instanceof GraphNode);
-  var a = arg || 13;
-  console.log(a);
-}
-function test_2(){
-  function * Loop(n){
-    this.n = n;
-    while(this.n--){
-      yield this.n;
-    }
-  }
-
-  function LoopObj(n){
-    this.n = n;
-    this.run = function*(){
-      while(this.n--){
-        yield this.n;
-      }
-    };
-  }
-
-  var loop = new LoopObj(3)
-  var res = loop.run();
-  console.log(res.next());
-  console.log(loop.n);
-  console.log(res.next());
-  console.log(loop.n);
-  console.log(res.next());
-  console.log(loop.n);
-  console.log(res.next());
-  console.log(loop.n);
-  console.log(res.next());
-  console.log(loop.n);
-  console.log(res.next());
-}

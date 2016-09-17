@@ -26,13 +26,16 @@ var Game = (function(){
   }
   var obj = {
     init: function(){
+
       //-- init world --//
       World.init(initMapData);
-      PathFinder.init( { 
-                          grid:  World.getGridMap(), 
-                          start: World.getStartingPoint(),
-                          end:   World.getEnddingPoint()
-                        });
+      _grid = World.getGridMap(); 
+      _start = World.getStartingPoint();
+      _end = World.getEnddingPoint();
+      PathFinder.init( { grid:  _grid, 
+                          start: _start,
+                          end:   _end } );
+
     },
     update: function(curTimestamp){
       var deltaTime = curTimestamp - m_Pretimestamp;
