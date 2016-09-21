@@ -74,7 +74,6 @@ var PathFinder = (function(){
   
   var obj = {
     init: function(opt){
-      alert("PathFinder.init");
       opt = opt || {}
       m_GridMap = opt.grid || null;
       //---- start & end ----//
